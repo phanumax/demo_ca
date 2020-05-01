@@ -1,8 +1,8 @@
 # ===== create user certificate =====
 privkeypass=123456
 mypass=`/usr/bin/pwgen 16 1`
-user="phanuphong@thaitv3.com"
-name="Phanuphong Thipsuk"
+read -p "Enter email: " user
+read -p "Enter Fullname: " name
 
 openssl genrsa -aes256 \
 	  -passout pass:$mypass \
