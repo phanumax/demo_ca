@@ -1,7 +1,8 @@
 # ===== create user certificate =====
+privkeypass=123456
 mypass=`/usr/bin/pwgen 16 1`
-user=`phanuphong@thaitv3.com`
-name=`Phanuphong Thipsuk`
+user="phanuphong@thaitv3.com"
+name="Phanuphong Thipsuk"
 
 openssl genrsa -aes256 \
 	  -passout pass:$mypass \
@@ -18,7 +19,7 @@ openssl req -config intermediate/openssl.cnf \
 	  -subj "/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=$name/emailAddress=$user"
 
 openssl ca -batch -config intermediate/openssl.cnf \
-	  -passin pass:$mypass \
+	  -passin pass:$privkeypass \
       -extensions usr_cert -days 365 -notext -md sha256 \
       -in intermediate/csr/$user.csr.pem \
       -out intermediate/certs/$user.cert.pem
