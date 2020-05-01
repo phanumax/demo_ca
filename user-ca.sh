@@ -1,6 +1,7 @@
 # ===== create user certificate =====
-mypass=123456
-user=warodom.w
+mypass=`/usr/bin/pwgen 16 1`
+user=`phanuphong@thaitv3.com`
+name=`Phanuphong Thipsuk`
 
 openssl genrsa -aes256 \
 	  -passout pass:$mypass \
@@ -14,7 +15,7 @@ openssl req -config intermediate/openssl.cnf \
 	  -passout pass:$mypass \
       -key intermediate/private/$user.key.pem \
       -new -sha256 -out intermediate/csr/$user.csr.pem \
-	  -subj "/C=TH/postalCode=83120/ST=Phuket/L=Kathu/O=PSU/OU=Certificate Department/CN=$user/emailAddress=$user@psu.ac.th"
+	  -subj "/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=$name/emailAddress=$user"
 
 openssl ca -batch -config intermediate/openssl.cnf \
 	  -passin pass:$mypass \
@@ -40,3 +41,4 @@ openssl pkcs12 -export \
 	-certfile intermediate/certs/ca-chain.cert.pem 
 
 cp intermediate/certs/$user.cert.p12 ./output
+echo "$user,/pkcs12/$user.p12,$mypass" >> ./output/pkcs12-files.csv

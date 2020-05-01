@@ -17,7 +17,7 @@ openssl req -config openssl.cnf \
       -key private/ca.key.pem \
       -new -x509 -days 7300 -sha256 -extensions v3_ca \
       -out certs/ca.cert.pem \
-      -subj '/C=TH/postalCode=83120/ST=Phuket/L=Kathu/O=PSU/OU=Certificate Department/CN=PSU Root CA/emailAddress=warodom.w@phuket.psu.ac.th'
+      -subj '/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=BEC World PCL Root CA/emailAddress=phanuphong@thaitv3.com'
 
 openssl x509 -noout -text -in certs/ca.cert.pem   # verify
 
