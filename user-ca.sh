@@ -16,7 +16,7 @@ openssl req -config intermediate/openssl.cnf \
 	  -passout pass:$mypass \
       -key intermediate/private/$user.key.pem \
       -new -sha256 -out intermediate/csr/$user.csr.pem \
-	  -subj "/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=$name/emailAddress=$user"
+	  -subj '/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=$name/emailAddress=$user'
 
 openssl ca -batch -config intermediate/openssl.cnf \
 	  -passin pass:$privkeypass \
