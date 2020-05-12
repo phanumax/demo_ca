@@ -19,7 +19,7 @@ openssl req -config intermediate/openssl.cnf -new -sha256 \
 	-passin pass:$mypass \
       -key intermediate/private/intermediate.key.pem \
       -out intermediate/csr/intermediate.csr.pem \
-	-subj '/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=BEC World PCL intermediate CA/emailAddress=phanuphong@thaitv3.com'
+	-subj '/C=TH/postalCode=10110/ST=Bangkok/L=Klongtoey/O=BEC World PCL/OU=Certificate Department/CN=BEC World PCL intermediate CA/emailAddress=techops@thaitv3.com'
 
 
 openssl ca -batch -config openssl.cnf -extensions v3_intermediate_ca \
